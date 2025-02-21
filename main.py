@@ -249,9 +249,9 @@ def switch_tariff(target_tariff):
         page.wait_for_timeout(1000)
         # replace with env
         page.goto(f"https://octopus.energy/smart/{target_tariff.lower()}/sign-up/?accountNumber={config.ACC_NUMBER}")
-        page.wait_for_timeout(10000)
-        page.locator("section").filter(has_text="Already have a SMETS2 or “").get_by_role("button").click()
-        page.wait_for_timeout(10000)
+        page.wait_for_timeout(20000)
+        page.locator("section").filter(has_text="Already have a SMETS2 or “").get_by_role("button").click(force=True)
+        page.wait_for_timeout(20000)
         # check if url has success
         context.close()
         browser.close()
